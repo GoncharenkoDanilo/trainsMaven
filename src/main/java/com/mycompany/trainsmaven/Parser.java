@@ -58,9 +58,6 @@ public class Parser {
             trains.add(new Train(schedule, route, departure, arrival, cancel));
         }
         
-        for (Train t : trains)
-            System.out.println(t.getInfo());
-        
         sortTrainsByTime(trains);
         return trains;
     }
