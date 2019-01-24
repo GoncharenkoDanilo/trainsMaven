@@ -16,6 +16,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 /**
  *
@@ -34,7 +35,7 @@ public class Trains {
         TelegramBotsApi botapi = new TelegramBotsApi();
         try {
             botapi.registerBot(new Bot());
-        } catch (Exception e) {
+        } catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }

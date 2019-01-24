@@ -26,6 +26,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 /**
  *
@@ -135,7 +136,7 @@ public class Bot extends TelegramLongPollingBot {
         s.setParseMode("html");
         try { //Чтобы не крашнулась программа при вылете Exception 
             execute(s);
-        } catch (Exception e) {
+        } catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }
@@ -169,7 +170,7 @@ public class Bot extends TelegramLongPollingBot {
         }
         try {
             execute(s);
-        } catch (Exception e) {
+        } catch (TelegramApiException e) {
             e.printStackTrace();
         }
 
@@ -197,7 +198,7 @@ public class Bot extends TelegramLongPollingBot {
 
         try {
             execute(message);
-        } catch (Exception e) {
+        } catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }
