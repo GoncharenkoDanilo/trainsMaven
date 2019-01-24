@@ -8,6 +8,7 @@ package com.mycompany.trainsmaven;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -44,6 +45,9 @@ public class Parser {
             elemsForRemove.add(columns[i].get(8));
             columns[i].removeAll(elemsForRemove);
         }
+//        
+//        for(Elements c : columns)
+//            System.out.println(c.html());
         
         for (int i = 0; i < columns.length; i++) {
             String schedule = columns[i].get(0).child(0).text();
@@ -53,6 +57,9 @@ public class Parser {
             String cancel = columns[i].get(4).child(0).text();
             trains.add(new Train(schedule, route, departure, arrival, cancel));
         }
+        
+        for (Train t : trains)
+            System.out.println(t.getInfo());
         
         sortTrainsByTime(trains);
         return trains;
@@ -83,9 +90,7 @@ public class Parser {
             for (int j = 0; j < i; j++) {
                 if (arr.get(j).getDepartureNumEq() > arr.get(j + 1).getDepartureNumEq()) {
                     
-                    Train tmp = arr.get(j);
-                    arr.set(i, arr.get(j + 1));
-                    arr.set(j + 1, tmp);
+                    Collections.swap(arr, j, j+1);
                 }
             }
         }
