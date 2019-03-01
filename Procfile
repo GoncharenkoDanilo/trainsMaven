@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -jar target/trainsMaven-1.0-SNAPSHOT-jar-with-dependencies.jar
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* trainsMaven
