@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* Trains
+web: java $JAVA_OPTS -cp target/classes/com/mycompany/trainsmaven:target/dependency/* Trains
